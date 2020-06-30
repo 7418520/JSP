@@ -10,6 +10,7 @@ public class HelloWorld extends HttpServlet {
 
     private String message;
 
+
     public void init() throws ServletException
     {
         // 执行必需的初始化
