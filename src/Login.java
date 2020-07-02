@@ -42,10 +42,10 @@ public class Login extends HttpServlet {
             rs = ps.executeQuery();
             if(rs.next())
             {
-                System.err.println("登陆成功");
+                System.err.println("登录成功");
                 request.getRequestDispatcher("/member.htm").forward(request,response);
             }else{
-                System.err.println("请重新注册");
+                System.err.println("登录失败，请重新登录");
                 response.setContentType("text/html;charset=UTF-8");
                 PrintWriter out=response.getWriter();
                 out.println("<DOCTYPE HTML>");

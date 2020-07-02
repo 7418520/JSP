@@ -1,32 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 20714
-  Date: 2020/6/22/0022
-  Time: 16:03
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="LI.Person" %>
-<html>
+<%@ page import="java.util.*" language="java" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>欢迎注册</title>
+
+    <title>注册</title>
 </head>
 <body>
-<%
-    String username=request.getParameter("username");
-    String password=request.getParameter("password");
-   try{if(Person.register(username,password))
-    {
-        out.print("注册成功");
-        out.print("<a href='login.html'>登录</a>");
-    }else
-    {
-        out.print("用户名已存在，请重新注册");
-        out.print("<a href='register.html'>重新注册</a>");
-    }}catch (Exception e)
-   {
-
-   }
-%>
+<div align="center">
+    <form method="post" action="<%=request.getContextPath()%>/register.htm">
+        用户名：<input type="text" name="username"><br>
+        密码 ：<input type="password" name="password"><br>
+        <button type="submit">注册</button>
+        <a href="login.jsp">请登录</a>
+    </form></div>
 </body>
 </html>

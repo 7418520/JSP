@@ -13,9 +13,9 @@
 </head>
 <body>
 <%
-    String name=request.getParameter("apple");
-    String num=request.getParameter("apple_num");
-    String price=request.getParameter("apple_price");
+    String name=request.getParameter("product");
+    String num=request.getParameter("num");
+    String price=request.getParameter("price");
     out.print(name);
     out.print(num);
     out.print(price);
