@@ -2,7 +2,6 @@ package LI;
 
 import java.util.Map;
 import java.util.Vector;
-
 public class product {
     String name;
     String  num;

@@ -15,13 +15,18 @@
 <%
     String username=request.getParameter("username");
     String password=request.getParameter("password");
-    if(Person.register(username,password))
+   try{if(Person.register(username,password))
     {
         out.print("注册成功");
+        out.print("<a href='login.html'>登录</a>");
     }else
     {
-        response.sendRedirect("register.html");
-    }
+        out.print("用户名已存在，请重新注册");
+        out.print("<a href='register.html'>重新注册</a>");
+    }}catch (Exception e)
+   {
+
+   }
 %>
 </body>
 </html>
