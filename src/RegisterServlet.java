@@ -41,12 +41,14 @@ public class RegisterServlet extends HttpServlet {
                 System.err.println("该用户名已存在，请重新注册");
                 response.setContentType("text/html;charset=UTF-8");
                 PrintWriter out = response.getWriter();
-                out.println("<DOCTYPE HTML>");
+                out.println("<!DOCTYPE HTML>");
                 out.println("<HTML>");
                 out.println("<HEAD><title>欢迎注册</title></HEAD>");
                 out.println("<body>");
+                out.println("<div align='center'>");
                 out.println("<h2>注册失败，请重新注册</h2>");
                 out.println("<a href=\"Login/register.html\">返回重新登陆</a>");
+                out.println("</div>");
                 out.println("</body>");
                 out.println("</HTML>");
 
@@ -60,23 +62,27 @@ public class RegisterServlet extends HttpServlet {
                     System.err.println("注册成功，请登录");
                     response.setContentType("text/html;charset=UTF-8");
                     PrintWriter out = response.getWriter();
-                    out.println("<DOCTYPE HTML>");
+                    out.println("<!DOCTYPE HTML>");
                     out.println("<HTML>");
                     out.println("<HEAD><title>欢迎登录</title></HEAD>");
                     out.println("<body>");
+                    out.println("<div align='center'>");
                     out.println("<h2>注册成功</h2>");
                     out.println("<a href=\"Login/login.jsp\">登陆</a>");
+                    out.println("</div>");
                     out.println("</body>");
                     out.println("</HTML>");
                 } else {
                     response.setContentType("text/html;charset=UTF-8");
                     PrintWriter out = response.getWriter();
-                    out.println("<DOCTYPE HTML>");
+                    out.println("<!DOCTYPE HTML>");
                     out.println("<HTML>");
                     out.println("<HEAD><title>欢迎注册</title></HEAD>");
                     out.println("<body>");
+                    out.println("<div align='center'>");
                     out.println("<h2>注册失败</h2>");
                     out.println("<a href=\"Login/register.jsp\">注册失败，请重新注册</a>");
+                    out.println("</div>");
                     out.println("</body>");
                     out.println("</HTML>");
                 }

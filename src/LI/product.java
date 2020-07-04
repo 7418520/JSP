@@ -1,34 +1,47 @@
 package LI;
 
+import java.sql.*;
 import java.util.Vector;
 
-public class product {
-    String name;
-    String num;
-    String price;
+public class product{
+    private String username;
+    private static String password;
+    private static Connection con = null;
+    private static PreparedStatement ps = null;
+    private static ResultSet rs = null;
+   static {   try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }}
+    public  static  ResultSet product()
+    {try{
+        String sql = "select * from product ";
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/person?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai", "root", "123456");
+        ps = con.prepareStatement(sql);
+        rs=ps.executeQuery();
+        return rs;
+    }catch (SQLException e)
+    {
 
-    public product(String name, String num, String price) {
-        this.name = name;
-        this.num = num;
-        this.price = price;
+    }return rs;
+    }
+    public  static  void Delproduct ()
+    {
+
+            try{
+
+
+        String sql = "delete from product";
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/person?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai", "root", "123456");
+        ps = con.prepareStatement(sql);
+        rs=ps.executeQuery();
+            }catch (SQLException e)
+            {
+
+            }
     }
 
-    static Vector<product> products = new Vector<>();
 
-    public static void productlict(String name, String num, String price) {
-        product p = new product(name, num, price);
-        products.add(p);
-    }
-
-    public static void print() {
-        for (product p : products) {
-            System.out.println(p.name);
-        }
-    }
-
-    public static void main(String[] args) {
-        for (product p : products) {
-            System.out.println(p.name);
-        }
-    }
 }
+
