@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
@@ -43,17 +44,21 @@ public class Login extends HttpServlet {
             if(rs.next())
             {
                 System.err.println("登录成功");
+                HttpSession s = request.getSession(true);
+                s.setAttribute("name",user);
                 request.getRequestDispatcher("/member.htm").forward(request,response);
             }else{
                 System.err.println("登录失败，请重新登录");
                 response.setContentType("text/html;charset=UTF-8");
                 PrintWriter out=response.getWriter();
-                out.println("<DOCTYPE HTML>");
+                out.println("<!DOCTYPE HTML>");
                 out.println("<HTML>");
                 out.println("<HEAD><title>欢迎登陆</title></HEAD>");
                 out.println("<body>");
+                out.println("<div align='center'>");
                 out.println("<h2>登陆失败，请重新登陆</h2>");
                 out.println("<a href=\"Login/login.jsp\">返回重新登陆</a>");
+                out.println("</div>");
                 out.println("</body>");
                 out.println("</HTML>");
                 //response.sendRedirect("Login/login.jsp");
@@ -63,10 +68,6 @@ public class Login extends HttpServlet {
         }
 
 
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }
