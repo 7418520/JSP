@@ -6,10 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.*" language="java" pageEncoding="UTF-8" %>
+
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <!-- 引入 FrozenUI -->
+    <title>欢迎登录</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div align="center">
@@ -17,8 +23,8 @@
         <card>
             用户名：<input type="text" name="username"><br>
             密码 ： <input type="password" name="password"><br>
-            <button type="submit">登录</button><br>
-            <a href="register.html">没有账号，立即注册</a></card>
+            <button class="btn btn-info">登录</button>
+            <button class="btn btn-info"> <a href="register.jsp">注册</a></button></card>
     </form>
 </div>
 </body>
