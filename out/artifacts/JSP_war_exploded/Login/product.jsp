@@ -52,10 +52,16 @@
         double price=Double.parseDouble(re.getString("price"));
         sum+=num*price;
         out.print("<tr>");
-        out.print("<td> <input value=" + re.getString("name") + "></td>");
-        out.print("<td><input value=" + re.getString("num") + "></td>");
-        out.print("<td><input value=" + re.getString("price") + "></td>");
+        out.print("<form action='/delproduct.htm' method='post'>");
+        out.print("<td> <input name=\"product\"value=" + re.getString("name") + "></td>");
+        out.print("<td><input name=\"num\" value=" + re.getString("num") + "></td>");
+        out.print("<td><input name=\"price\" value=" + re.getString("price") + "></td>");
+        out.print("<td>");
+        out.print(" <button class=\"btn btn-info\" type=\"submit\">删除</button>");
+        out.print("</td>");
+        out.print("</form>");
         out.print("</tr>");
+
     }
     out.print("<tr>");
     out.print("<td>总价</td>");
